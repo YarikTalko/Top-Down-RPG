@@ -9,13 +9,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ContactFilter2D movementFilter;
 
     Vector2 movementInput;
+    SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
+    Animator animator;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -33,8 +36,35 @@ public class PlayerController : MonoBehaviour
                     success = TryMove(new Vector2(0, movementInput.y));
                 }
             }
+            if (movementInput.x != 0)
+            {
+                animator.SetBool("isMovingLeftOrRight", success);
+                if (movementInput.x < 0)
+                {
+                    spriteRenderer.flipX = true;
+                }
+                else if (movementInput.x > 0)
+                {
+                    spriteRenderer.flipX = false;
+                }
+            }
+            if (movementInput.y < 0)
+            {
+                animator.SetBool("isMovingDown", success);
+            }
+            else if (movementInput.y > 0)
+            {
+                animator.SetBool("isMovingUp", success);
+            }
+        }
+        else
+        {
+            animator.SetBool("isMovingLeftOrRight", false);
+            animator.SetBool("isMovingUp", false);
+            animator.SetBool("isMovingDown", false);
         }
     }
+
 
     private bool TryMove(Vector2 direction)
     {

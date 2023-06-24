@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: player_walk_down
+  m_Name: player_idle_down
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,17 +21,17 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 569085241, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
+      value: {fileID: 1491175373, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
     - time: 0.1
-      value: {fileID: -515637315, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
+      value: {fileID: -1960550952, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
     - time: 0.2
-      value: {fileID: 1010296535, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
+      value: {fileID: -979496403, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
     - time: 0.3
-      value: {fileID: 521965285, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
+      value: {fileID: -587011409, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
     - time: 0.4
-      value: {fileID: -1598567879, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
+      value: {fileID: 299564022, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
     - time: 0.5
-      value: {fileID: 1394420718, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
+      value: {fileID: 1409278209, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -54,12 +54,12 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 569085241, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
-    - {fileID: -515637315, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
-    - {fileID: 1010296535, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
-    - {fileID: 521965285, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
-    - {fileID: -1598567879, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
-    - {fileID: 1394420718, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
+    - {fileID: 1491175373, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
+    - {fileID: -1960550952, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
+    - {fileID: -979496403, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
+    - {fileID: -587011409, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
+    - {fileID: 299564022, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
+    - {fileID: 1409278209, guid: ec997891a1a404244aa788827a8fa09f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -84,18 +84,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0
-    functionName: TurnRight
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0
-    functionName: IdleDown
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

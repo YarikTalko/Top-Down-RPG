@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
+    private float idleSwitch;
 
     bool canMove = true;
 
@@ -22,6 +23,15 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        idleSwitch = 0.5f;
+    }
+
+    private void Update()
+    {
+        animator.SetFloat("Horizontal", movementInput.x);
+        animator.SetFloat("Vertical", movementInput.y);
+        animator.SetFloat("Speed", movementInput.sqrMagnitude);
+        animator.SetFloat("idleSwitch", idleSwitch);
     }
 
     private void FixedUpdate()
@@ -38,39 +48,12 @@ public class PlayerController : MonoBehaviour
 
                     if (!success)
                     {
-                        success = TryMove(new Vector2(0, movementInput.y));
+                        TryMove(new Vector2(0, movementInput.y));
                     }
                 }
-                if (movementInput.x != 0)
-                {
-                    animator.SetBool("isMovingLeftOrRight", success);
-                    if (movementInput.x < 0)
-                    {
-                        spriteRenderer.flipX = true;
-                    }
-                    else if (movementInput.x > 0)
-                    {
-                        spriteRenderer.flipX = false;
-                    }
-                }
-                if (movementInput.y < 0)
-                {
-                    animator.SetBool("isMovingDown", success);
-                }
-                else if (movementInput.y > 0)
-                {
-                    animator.SetBool("isMovingUp", success);
-                }
-            }
-            else
-            {
-                animator.SetBool("isMovingLeftOrRight", false);
-                animator.SetBool("isMovingUp", false);
-                animator.SetBool("isMovingDown", false);
             }
         }
     }
-
 
     private bool TryMove(Vector2 direction)
     {
@@ -101,15 +84,15 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("swordAttack");
     }
 
-    public void SwordAttack() 
+    public void SwordAttack()
     {
         LockMovement();
-        if (spriteRenderer.flipX == true) 
+        if (spriteRenderer.flipX == true)
         {
             swordAttack.AttackLeft();
-        }
-        else 
-        { 
+        } 
+        else
+        {
             swordAttack.AttackRight();
         }
     }
@@ -128,5 +111,30 @@ public class PlayerController : MonoBehaviour
     public void UnlockMovement()
     {
         canMove = true;
+    }
+
+    private void TurnRight()
+    {
+        spriteRenderer.flipX = false;
+    }
+
+    private void TurnLeft()
+    {
+        spriteRenderer.flipX = true;
+    }
+
+    private void IdleUp()
+    {
+        idleSwitch = 0f;
+    }
+
+    private void IdleSide()
+    {
+        idleSwitch = 0.5f;
+    }
+
+    private void IdleDown()
+    {
+        idleSwitch = 1f;
     }
 }
